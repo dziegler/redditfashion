@@ -1,5 +1,7 @@
+import sys
 from datetime import date, timedelta
 from helpers import custom_strftime
+from optparse import OptionParser
 
 import praw
 
@@ -50,7 +52,7 @@ class AutoPostingBot(object):
             return
 
         reddit = praw.Reddit(user_agent=self.user_agent)
-        reddit.login()
+        reddit.login(self.author, self.password)
         submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
 
         if distinguish:
@@ -60,6 +62,63 @@ class AutoPostingBot(object):
         # submission.set_flair(submission['flair'], submission['class'])
         return submission
 
-def submit_post(post_contents, author=None, password=None, subreddit=None, stdout=False):
+
+def submit_post(post_content, author=None, password=None, subreddit=None, stdout=False):
     bot = AutoPostingBot(author=author, password=password, subreddit=subreddit)
-    bot.post(stdout=stdout, **post_contents)
+    bot.post(stdout=stdout, **post_content)
+
+def console_run(post_contents, author=None, password=None, subreddit=None):
+
+    parser = OptionParser()
+    parser.add_option(
+        '-t',
+        '--test',
+        help='Test run that prints to console, does not post',
+        dest="test_run",
+        default=False,
+        action='store_true'
+    )
+    parser.add_option(
+        '-b',
+        '--b',
+        help='Post to the bottesting subreddit',
+        dest="bot_test",
+        default=False,
+        action='store_true'
+    )
+    parser.add_option(
+        '-p',
+        '--post_type',
+        help='Prints what Post Types are available',
+        dest="post_type",
+        default=False,
+        action='store_true'
+    )
+    (options, args) = parser.parse_args()
+
+    if options.post_type:
+        print "\nAvailable Post Types: \n"
+        for key in post_contents.keys():
+            print key
+        sys.exit(0)
+
+    try:
+        post_type = args[0]
+    except IndexError:
+        print "Please specify a Post Type as an argument"
+        sys.exit(0)
+
+    post_kwargs = {
+        'author': author,
+        'password': password,
+        'subreddit': subreddit,
+    }
+    if options.test_run:
+        post_kwargs['stdout'] = True
+    elif options.bot_test:
+        post_kwargs['subreddit'] = "bottesting"
+
+    submit_post(
+        post_contents[post_type],
+        **post_kwargs
+    )

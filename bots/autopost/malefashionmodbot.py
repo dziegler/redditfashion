@@ -1,9 +1,8 @@
-from core.bot import submit_post
+from core.bot import console_run
 
-AUTHOR = ""
+AUTHOR = "malefashionmodbot"
 PASSWORD = ""
 SUBREDDIT = "malefashion"
-
 
 POST_CONTENTS = {
     "shopping_list": {
@@ -31,6 +30,4 @@ POST_CONTENTS = {
 }
 
 if __name__ == "__main__":
-    import sys
-    key = sys.argv[1]
-    submit_post(stdout=True, **POST_CONTENTS[key])
+    console_run(POST_CONTENTS, author=AUTHOR, password=PASSWORD, subreddit=SUBREDDIT)
