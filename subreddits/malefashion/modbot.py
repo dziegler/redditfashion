@@ -1,31 +1,34 @@
-from core.bot import console_run
+import os
 
+from autopost.core import console_run
+from password import PASSWORD
+
+ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
+TEMPLATE_DIR = os.path.join(ROOT_PATH, "templates", "malefashion")
 AUTHOR = "malefashionmodbot"
-PASSWORD = ""
 SUBREDDIT = "malefashion"
 
 POST_CONTENTS = {
     "shopping_list": {
         "title": "Shopping List - {today}",
-        "template": "templates/malefashion/shopping_list.md",
+        "template": os.path.join(TEMPLATE_DIR, "shopping_list.md"),
         "distinguish": True,
     },
     "whewt": {
         "title": "WHeWT - {today}",
-        "template": "templates/malefashion/whewt.md",
+        "template": os.path.join(TEMPLATE_DIR, "whewt.md"),
         "distinguish": True,
     },
     "wiwt": {
         "title": "WIWT - {today} - {one_week_later}",
-        "template": "templates/malefashion/wiwt.md",
+        "template": os.path.join(TEMPLATE_DIR, "wiwt.md"),
         "distinguish": True,
         "sticky": True,
     },
     "general_discussion": {
         "title": "General Discussion - {today}",
-        "template": "templates/malefashion/general_discussion.md",
+        "template": os.path.join(TEMPLATE_DIR, "general_discussion.md"),
         "distinguish": True,
-        "sticky": True,
     }
 }
 

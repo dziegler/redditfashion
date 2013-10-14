@@ -1,9 +1,10 @@
+import argparse
 import sys
 from datetime import date, timedelta
-from helpers import custom_strftime
-from optparse import OptionParser
 
 import praw
+
+from autopost.helpers import custom_strftime
 
 class AutoPostingBot(object):
 
@@ -69,8 +70,9 @@ def submit_post(post_content, author=None, password=None, subreddit=None, stdout
 
 def console_run(post_contents, author=None, password=None, subreddit=None):
 
-    parser = OptionParser()
-    parser.add_option(
+    parser = argparse.ArgumentParser(description='Auto posting bot')
+    parser.add_argument('post_type', metavar="post_type", help="Post type")
+    parser.add_argument(
         '-t',
         '--test',
         help='Test run that prints to console, does not post',
@@ -78,7 +80,7 @@ def console_run(post_contents, author=None, password=None, subreddit=None):
         default=False,
         action='store_true'
     )
-    parser.add_option(
+    parser.add_argument(
         '-b',
         '--b',
         help='Post to the bottesting subreddit',
@@ -86,26 +88,20 @@ def console_run(post_contents, author=None, password=None, subreddit=None):
         default=False,
         action='store_true'
     )
-    parser.add_option(
+    parser.add_argument(
         '-p',
         '--post_type',
         help='Prints what Post Types are available',
-        dest="post_type",
+        dest="print_post_types",
         default=False,
         action='store_true'
     )
-    (options, args) = parser.parse_args()
+    args = parser.parse_args()
 
-    if options.post_type:
+    if args.print_post_types:
         print "\nAvailable Post Types: \n"
         for key in post_contents.keys():
             print key
-        sys.exit(0)
-
-    try:
-        post_type = args[0]
-    except IndexError:
-        print "Please specify a Post Type as an argument"
         sys.exit(0)
 
     post_kwargs = {
@@ -113,12 +109,12 @@ def console_run(post_contents, author=None, password=None, subreddit=None):
         'password': password,
         'subreddit': subreddit,
     }
-    if options.test_run:
+    if args.test_run:
         post_kwargs['stdout'] = True
-    elif options.bot_test:
+    elif args.bot_test:
         post_kwargs['subreddit'] = "bottesting"
 
     submit_post(
-        post_contents[post_type],
+        post_contents[args.post_type],
         **post_kwargs
     )
