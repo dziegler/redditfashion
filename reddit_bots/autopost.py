@@ -61,7 +61,8 @@ class AutoPostingBot(object):
             submission.distinguish()
         if sticky:
             submission.sticky()
-        # submission.set_flair(submission['flair'], submission['class'])
+        if flair:
+            submission.set_flair(flair[0], flair[1])
         return submission
 
 
