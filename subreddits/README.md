@@ -33,6 +33,7 @@ Adding a new recurring thread
     * `title` - Title of the post, recognizes variables {today} and {one_week_later}. Subclass the bot to add more.
     * `template` - Path to the file containing the body of the post.
 
+
     Optional:
 
     * `distinguish` - (Boolean: default False) - Distinguishes the post, requires mod status
