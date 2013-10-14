@@ -33,8 +33,30 @@ class AutoPostingBot(object):
         })
         return kwargs
 
+    def _submit_post(self, submission_title, submission_content, max_retries=10):
+        reddit = praw.Reddit(user_agent=self.user_agent)
+        n_tries = 0
+
+        while n_tries < max_retries:
+            try:
+                reddit.login(self.author, self.password)
+                submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
+                break
+            except praw.errors.RateLimitExceeded, e:
+                print "Rate limit exceeded, trying again... {0}/{1}".format(n_tries, max_retries)
+                n_tries += 1
+                # reddit is probably overloaded, wait and try again
+                time.sleep(5)
+            except Exception, e:
+                raise e
+
+        if n_tries == max_retries:
+            raise Exception("Max submission attempts exceeded.")
+
+        return submission
+
     def post(self, title=None, content=None, template=None, flair=None,
-             distinguish=False, sticky=False, stdout=False, max_retries=10):
+             distinguish=False, sticky=False, stdout=False):
 
         # Get the title
         submission_title = title.format(**self.get_context())
@@ -54,19 +76,7 @@ class AutoPostingBot(object):
             print submission_content
             return
 
-        reddit = praw.Reddit(user_agent=self.user_agent)
-        n_tries = 0
-        while n_tries < max_retries:
-            try:
-                reddit.login(self.author, self.password)
-                submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
-                break
-            except praw.errors.RateLimitExceeded:
-                n_tries += 1
-                # reddit is probably overloaded, wait and try again
-                time.sleep(2)
-            except Exception, e:
-                raise e
+        submission = self._submit_post(submission_title, submission_content)
 
         if distinguish:
             submission.distinguish()
