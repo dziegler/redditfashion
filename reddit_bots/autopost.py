@@ -56,7 +56,7 @@ class AutoPostingBot(object):
 
         reddit = praw.Reddit(user_agent=self.user_agent)
         n_tries = 0
-        while n_tries < max_retries
+        while n_tries < max_retries:
             try:
                 reddit.login(self.author, self.password)
                 submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
