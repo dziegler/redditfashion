@@ -61,10 +61,12 @@ class AutoPostingBot(object):
                 reddit.login(self.author, self.password)
                 submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
                 break
-            except:
+            except praw.errors.RateLimitExceeded:
                 n_tries += 1
                 # reddit is probably overloaded, wait and try again
                 time.sleep(2)
+            except Exception, e:
+                raise e
 
         if distinguish:
             submission.distinguish()
