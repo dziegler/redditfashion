@@ -1,0 +1,4 @@
+0 16 * * 2 ~/repos/redditfashion/subreddits/malefashion/modbot.py whewt > /dev/null 2>&1
+0 16 * * 3 ~/repos/redditfashion/subreddits/malefashion/modbot.py wiwt > /dev/null 2>&1
+0 16 * * 3 ~/repos/redditfashion/subreddits/malefashion/modbot.py shopping_list > /dev/null 2>&1
+0 16 * * 4 ~/repos/redditfashion/subreddits/malefashion/modbot.py general_discussion > /dev/null 2>&1
