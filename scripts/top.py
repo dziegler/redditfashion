@@ -42,10 +42,8 @@ def get_comment_score(comment, score_type="upvotes"):
         return comment.score
 
 
-class MFAScraper(object):
+class WAYWTScraper(object):
 
-    author = "MFAModerator"
-    subreddit = "malefashionadvice"
     version = "0.2"
 
     # Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems.
@@ -174,13 +172,6 @@ class MFAScraper(object):
             print img
 
 
-class FFAScraper(MFAScraper):
-
-    author = "FFA_Moderator"
-    subreddit = "femalefashionadvice"
-    version = "0.2"
-
-
 if __name__ == "__main__":
 
     from optparse import OptionParser
@@ -229,9 +220,15 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
     if options.female:
-        scraper = FFAScraper()
+        scraper = WAYWTScraper(
+            author="FFA_Moderator",
+            subreddit="femalefashionadvice"
+        )
     else:
-        scraper = MFAScraper()
+        scraper = WAYWTScraper(
+            author="MFAModerator",
+            subreddit="malefashionadvice"
+        )
 
     scraper.scrape_waywt(
         score_type=options.score_type,
