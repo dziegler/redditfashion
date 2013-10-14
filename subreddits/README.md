@@ -9,6 +9,10 @@ Setup
 
 2. Add the `cronjob` file to `cron.d` or copy and paste it into crontab using `crontab -e`. Make sure the paths in `cronjob` are correct for your server.
 
+3. Make sure praw is installed and you're using python 2.7 or greater:
+
+        pip install praw
+
 Adding a new recurring thread
 =============
 

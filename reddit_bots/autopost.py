@@ -1,5 +1,6 @@
 import argparse
 import sys
+import time
 from datetime import date, timedelta
 
 import praw
@@ -33,7 +34,7 @@ class AutoPostingBot(object):
         return kwargs
 
     def post(self, title=None, content=None, template=None, flair=None,
-             distinguish=False, sticky=False, stdout=False):
+             distinguish=False, sticky=False, stdout=False, max_retries=10):
 
         # Get the title
         submission_title = title.format(**self.get_context())
@@ -54,8 +55,16 @@ class AutoPostingBot(object):
             return
 
         reddit = praw.Reddit(user_agent=self.user_agent)
-        reddit.login(self.author, self.password)
-        submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
+        n_tries = 0
+        while n_tries < max_retries
+            try:
+                reddit.login(self.author, self.password)
+                submission = reddit.submit(self.subreddit, submission_title, text=submission_content)
+                break
+            except:
+                n_tries += 1
+                # reddit is probably overloaded, wait and try again
+                time.sleep(2)
 
         if distinguish:
             submission.distinguish()
