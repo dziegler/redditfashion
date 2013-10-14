@@ -71,7 +71,9 @@ class WAYWTScraper(object):
         'Dec'
     ]
 
-    def __init__(self):
+    def __init__(self, author=None, subreddit=None):
+        self.author = author
+        self.subreddit = subreddit
         self.user_agent = 'TopOfWAYWT Collector v{0}'.format(self.version)
 
     def get_urls_from_comment(self, comment):
