@@ -1,10 +1,13 @@
 import os
-
-from autopost.core import console_run
-from password import PASSWORD
+import sys
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
-TEMPLATE_DIR = os.path.join(ROOT_PATH, "templates", "malefashion")
+sys.path.append(os.path.join(ROOT_PATH, "..", ".."))
+
+from reddit_bots.autopost import console_run
+from password import PASSWORD
+
+TEMPLATE_DIR = os.path.join(ROOT_PATH, "templates")
 AUTHOR = "malefashionmodbot"
 SUBREDDIT = "malefashion"
 

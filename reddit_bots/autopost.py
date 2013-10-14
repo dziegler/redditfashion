@@ -4,7 +4,7 @@ from datetime import date, timedelta
 
 import praw
 
-from autopost.helpers import custom_strftime
+from reddit_bots.helpers import custom_strftime
 
 class AutoPostingBot(object):
 
@@ -32,7 +32,8 @@ class AutoPostingBot(object):
         })
         return kwargs
 
-    def post(self, title=None, content=None, template=None, flair=None, distinguish=False, sticky=False, stdout=False):
+    def post(self, title=None, content=None, template=None, flair=None,
+             distinguish=False, sticky=False, stdout=False):
 
         # Get the title
         submission_title = title.format(**self.get_context())
@@ -63,10 +64,6 @@ class AutoPostingBot(object):
         # submission.set_flair(submission['flair'], submission['class'])
         return submission
 
-
-def submit_post(post_content, author=None, password=None, subreddit=None, stdout=False):
-    bot = AutoPostingBot(author=author, password=password, subreddit=subreddit)
-    bot.post(stdout=stdout, **post_content)
 
 def console_run(post_contents, author=None, password=None, subreddit=None):
 
@@ -104,17 +101,14 @@ def console_run(post_contents, author=None, password=None, subreddit=None):
             print key
         sys.exit(0)
 
-    post_kwargs = {
+    bot_kwargs = {
         'author': author,
         'password': password,
         'subreddit': subreddit,
     }
-    if args.test_run:
-        post_kwargs['stdout'] = True
-    elif args.bot_test:
-        post_kwargs['subreddit'] = "bottesting"
 
-    submit_post(
-        post_contents[args.post_type],
-        **post_kwargs
-    )
+    if args.bot_test:
+        bot_kwargs['subreddit'] = "bottesting"
+
+    bot = AutoPostingBot(**bot_kwargs)
+    bot.post(stdout=args.test_run, **post_contents[args.post_type])
