@@ -1,7 +1,7 @@
 import argparse
 import sys
 import time
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 import praw
 
@@ -84,6 +84,8 @@ class AutoPostingBot(object):
             submission.sticky()
         if flair:
             submission.set_flair(flair[0], flair[1])
+
+        print "{}: Posted to {} - '{}'".format(datetime.now(), self.subreddit, title)
         return submission
 
 
