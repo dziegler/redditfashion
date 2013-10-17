@@ -10,5 +10,3 @@ This thread encourages interesting and experimental looks.
 
 
 This post will be a sticky post until next wednesday, then It will be refreshed.
-
-[**Click here to sort by new posts!**](http://www.reddit.com/r/malefashion/comments/1o2f1h/wiwt_october_9th_15th/?sort=new)

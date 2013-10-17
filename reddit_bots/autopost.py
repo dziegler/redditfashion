@@ -24,7 +24,7 @@ class AutoPostingBot(object):
 
     @property
     def one_week_later(self):
-        return custom_strftime(self.DATE_FORMAT, date.today() - timedelta(days=6))
+        return custom_strftime(self.DATE_FORMAT, date.today() + timedelta(days=6))
 
     def get_context(self, **kwargs):
         kwargs.update({
@@ -32,6 +32,13 @@ class AutoPostingBot(object):
             'one_week_later': self.one_week_later,
         })
         return kwargs
+
+    def add_sort_by_new(submission):
+        url = submission.url + "?sort=new"
+        text_to_append = "\n\n[**Click here to sort by new posts!**]({})\n".format(url)
+        if submission.selftext.find(url) != -1:
+            text = submission.selftext + text_to_append
+            submission.edit(text)
 
     def _submit_post(self, submission_title, submission_content, max_retries=10):
         reddit = praw.Reddit(user_agent=self.user_agent)
@@ -56,7 +63,7 @@ class AutoPostingBot(object):
         return submission
 
     def post(self, title=None, content=None, template=None, flair=None,
-             distinguish=False, sticky=False, stdout=False):
+             distinguish=False, sticky=False, add_sort_by_new=False, stdout=False):
 
         # Get the title
         submission_title = title.format(**self.get_context())
@@ -84,6 +91,8 @@ class AutoPostingBot(object):
             submission.sticky()
         if flair:
             submission.set_flair(flair[0], flair[1])
+        if add_sort_by_new:
+            self.add_sort_by_new(submission)
 
         print "{}: Posted to {} - '{}'".format(datetime.now(), self.subreddit, title)
         return submission

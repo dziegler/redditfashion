@@ -21,6 +21,7 @@ POST_CONTENTS = {
     "wiwt": {
         "title": "WIWT - {today} - {one_week_later}",
         "template": os.path.join(TEMPLATE_DIR, "wiwt.md"),
+        "add_sort_by_new": True,
         "distinguish": True,
         "sticky": True,
     },

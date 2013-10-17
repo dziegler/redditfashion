@@ -36,6 +36,7 @@ POST_CONTENTS = {
         "title": "WAYWT - {today}",
         "template": os.path.join(TEMPLATE_DIR, "waywt.md"),
         "distinguish": True,
+        "add_sort_by_new": True,
         "flair": ("[Weekly]", "scheduled")
     },
     "random_fashion": {
