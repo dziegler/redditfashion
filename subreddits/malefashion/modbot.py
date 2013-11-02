@@ -29,6 +29,16 @@ POST_CONTENTS = {
         "title": "General Discussion - {today}",
         "template": os.path.join(TEMPLATE_DIR, "general_discussion.md"),
         "distinguish": True,
+    },
+    "buy_sell_trade": {
+        "title": "Buy/Sell/Trade - {today}",
+        "template": os.path.join(TEMPLATE_DIR, "buy_sell_trade.md"),
+        "distinguish": True,
+    },
+    "inspiration": {
+        "title": "Inspiration Thread - {today}",
+        "template": os.path.join(TEMPLATE_DIR, "inspiration.md"),
+        "distinguish": True,
     }
 }
 
