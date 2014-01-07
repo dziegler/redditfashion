@@ -7,6 +7,14 @@ TEMPLATE_DIR = os.path.join(ROOT_PATH, "templates")
 AUTHOR = "FFA_Moderator"
 SUBREDDIT = "femalefashionadvice"
 
+# Mon Recent Purchases • Simple Questions
+# Tues Hair, Makeup, Skincare, Fitness and Fragrance • Theme WAYWT Submission • General Discussion
+# Wed WAYWT • Random Fashion Thoughts
+# Thurs Simple Questions • Theme WAYWT Announcement • Outfit Feedback and Fit Check
+# Fri General Discussion
+# Sat Need/Want/Love
+# Sun WAYWT
+
 POST_CONTENTS = {
     "recent_purchases": {
         "title": "Recent Purchases - {today}",

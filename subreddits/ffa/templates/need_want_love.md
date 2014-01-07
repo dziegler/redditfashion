@@ -1,4 +1,4 @@
-A few weeks ago, /u/dapperscavenger posted an alternative to our weekly "should or shouldn't I buy" in which posters were encouraged to post items they wanted, needed, or loved. For instance:
+An alternative to our weekly "should or shouldn't I buy" in which posters are encouraged to post items they want, need, or love. For instance:
 
 
 * I really want black pants for the office.
