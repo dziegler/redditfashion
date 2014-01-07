@@ -9,9 +9,6 @@ Setup
 
 2. Add the `cronjob` file to `cron.d` or copy and paste it into crontab using `crontab -e`. Make sure the paths in `cronjob` are correct for your server.
 
-3. Make sure praw is installed and you're using python 2.7 or greater:
-
-        pip install praw
 
 Adding a new recurring thread
 =============
@@ -42,3 +39,22 @@ Adding a new recurring thread
 3. Edit the `cronjob` file for when you'd like this thread to be posted. Remember to check the timezone of your server and take that into account.
 
 4. Push your changes to the server.
+
+
+Posting manually from the command line
+=============
+
+Post new_thread:
+
+    python modbot.py new_thread
+
+
+Example:
+
+    python redditfashion/subreddits/malefashion/modbot.py general_discussion
+
+
+Print help/options to the console:
+
+    python modbot.py -h
+
