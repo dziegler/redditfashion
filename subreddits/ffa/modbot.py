@@ -57,6 +57,12 @@ POST_CONTENTS = {
         "distinguish": True,
         "flair": ("[Weekly]", "scheduled")
     },
+    "find_fashion_friday": {
+        "title": "Find Fashion Friday - {today}",
+        "template": os.path.join(TEMPLATE_DIR, "find_fashion_friday.md"),
+        "distinguish": True,
+        "flair": ("[Weekly]", "scheduled")
+    },
 }
 
 if __name__ == "__main__":

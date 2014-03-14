@@ -1,7 +1,8 @@
-0 17 * * 1 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py recent_purchases 2>&1 >> ~/logs/user/cron.log
-0 17 * * 1,4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py simple_questions 2>&1 >> ~/logs/user/cron.log
-0 17 * * 2 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py hair_makeup 2>&1 >> ~/logs/user/cron.log
-0 17 * * 2,5 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py general_discussion 2>&1 >> ~/logs/user/cron.log
-0 17 * * 0,3 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py waywt 2>&1 >> ~/logs/user/cron.log
-0 17 * * 4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py outfit_feedback 2>&1 >> ~/logs/user/cron.log
-0 17 * * 6 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py need_want_love 2>&1 >> ~/logs/user/cron.log
+0 16 * * 1 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py recent_purchases 2>&1 >> ~/logs/user/cron.log
+0 16 * * 1,4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py simple_questions 2>&1 >> ~/logs/user/cron.log
+0 16 * * 2 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py hair_makeup 2>&1 >> ~/logs/user/cron.log
+0 16 * * 2,5 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py general_discussion 2>&1 >> ~/logs/user/cron.log
+0 16 * * 0,3 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py waywt 2>&1 >> ~/logs/user/cron.log
+0 16 * * 4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py outfit_feedback 2>&1 >> ~/logs/user/cron.log
+0 16 * * 6 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py need_want_love 2>&1 >> ~/logs/user/cron.log
+0 16 * * 5 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py find_fashion_friday 2>&1 >> ~/logs/user/cron.log
