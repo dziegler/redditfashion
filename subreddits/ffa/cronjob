@@ -6,3 +6,4 @@
 0 16 * * 4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py outfit_feedback 2>&1 >> ~/logs/user/cron.log
 0 16 * * 6 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py need_want_love 2>&1 >> ~/logs/user/cron.log
 0 16 * * 5 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/ffa/modbot.py find_fashion_friday 2>&1 >> ~/logs/user/cron.log
+

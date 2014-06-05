@@ -1,0 +1,6 @@
+0 16 * * 1 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/femalefashion/modbot.py outfit_feedback 2>&1 >> ~/logs/user/cron.log
+0 16 * * 2 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/femalefashion/modbot.py recent_purchases 2>&1 >> ~/logs/user/cron.log
+0 16 * * 3 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/femalefashion/modbot.py general_discussions 2>&1 >> ~/logs/user/cron.log
+0 16 * * 4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/femalefashion/modbot.py find_fashion 2>&1 >> ~/logs/user/cron.log
+0 16 * * 5 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/femalefashion/modbot.py buy_sell_trade 2>&1 >> ~/logs/user/cron.log
+0 16 * * 6 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/femalefashion/modbot.py random_thoughts 2>&1 >> ~/logs/user/cron.log
