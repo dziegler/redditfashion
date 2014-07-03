@@ -1,4 +1,4 @@
-Not sure if your outfit works? Post a picture of yourself in your outfit and get suggestions, compliments, and critiques from others. If you're thinking of posting a standalone thread along the lines of "How does this look?", "Does this fit right?", "Do these work together?", etc., post here instead.
+Do you have a new clothing item you don't know how to wear? No idea what to wear to a wedding/interview/date? Unsure how to accessorize an outfit? Then your questions belong here! Post below to receive advice and feedback.
 
 When posting:
 

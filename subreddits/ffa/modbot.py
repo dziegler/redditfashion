@@ -46,13 +46,13 @@ POST_CONTENTS = {
         "flair": ("[Weekly]", "scheduled")
     },
     "outfit_feedback": {
-        "title": "Outfit Feedback and Fit Check Thread - {today}",
+        "title": "Outfit Advice & Feedback - {today}",
         "template": os.path.join(TEMPLATE_DIR, "outfit_feedback.md"),
         "distinguish": True,
         "flair": ("[Weekly]", "scheduled")
     },
     "need_want_love": {
-        "title": "Need/Want/Love - {today}",
+        "title": "Should I or Shouldn't I Buy... - {today}",
         "template": os.path.join(TEMPLATE_DIR, "need_want_love.md"),
         "distinguish": True,
         "flair": ("[Weekly]", "scheduled")
