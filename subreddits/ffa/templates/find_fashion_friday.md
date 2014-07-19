@@ -1,3 +1,1 @@
-Is there something you're looking for and can't find? Want to help fellow FFAers in their search for x? This is the thread to do it in! Post requests for something you saw a character wear on a show or ask for advice on where to find general items.
-
-If you're asking for help, please also try and answer others' requests! This only works if we all help out.
+Is there something you're looking for and can't find? Want to help fellow FFAers in their search for x? This is the thread to do it in! Post requests for something you saw a character wear on a show or ask for advice on where to find general items. If you're asking for help, please also try and answer others' requests! This only works if we all help out.
