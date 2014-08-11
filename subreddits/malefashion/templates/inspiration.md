@@ -1,1 +1,0 @@
-It's Monday, let's make the week suck a little less for each other. Post anything you find inspiration in, doesn't necessarily have to be fashion related (art, music, architecture, food, pie, pie charts, etc)

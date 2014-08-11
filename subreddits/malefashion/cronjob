@@ -2,4 +2,4 @@
 0 15 * * 3 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/malefashion/modbot.py shopping_list 2>&1 >> ~/logs/user/cron.log
 0 15 * * 4 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/malefashion/modbot.py general_discussion 2>&1 >> ~/logs/user/cron.log
 0 15 * * 0 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/malefashion/modbot.py buy_sell_trade 2>&1 >> ~/logs/user/cron.log
-0 15 * * 1 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/malefashion/modbot.py inspiration 2>&1 >> ~/logs/user/cron.log
+0 15 * * 1 /usr/local/bin/python2.7 ~/repos/redditfashion/subreddits/malefashion/modbot.py simple_questions 2>&1 >> ~/logs/user/cron.log

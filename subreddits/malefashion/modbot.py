@@ -35,9 +35,9 @@ POST_CONTENTS = {
         "template": os.path.join(TEMPLATE_DIR, "buy_sell_trade.md"),
         "distinguish": True,
     },
-    "inspiration": {
-        "title": "Inspiration Thread - {today}",
-        "template": os.path.join(TEMPLATE_DIR, "inspiration.md"),
+    "simple_questions": {
+        "title": "Simple Questions - {today}",
+        "template": os.path.join(TEMPLATE_DIR, "simple_questions.md"),
         "distinguish": True,
     }
 }
